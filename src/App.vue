@@ -1,9 +1,9 @@
 <template>
-  <div id="app">app page
-    <div><router-link to="/">Go to Login</router-link></div>
-    <div><router-link to="/product">Go to Product</router-link></div>
-    <div><router-link to="/customer">Go to Customer</router-link></div>
-    <hr>
+  <div id="app">Navigator bar
+<!--    <div><router-link to="/">Go to Login</router-link></div>-->
+<!--    <div><router-link to="/prduc。t">Go to Product</router-link></div>-->
+<!--    <div><router-link to="/customer">Go to Customer</router-link></div>-->
+<!--    <hr>-->
     <router-view></router-view>
 <!--    <img alt="Vue logo" src="./assets/logo.png">-->
 <!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
@@ -26,8 +26,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
-  margin-top: 60px;
+  /*margin-top: 60px;*/
 }
 </style>
