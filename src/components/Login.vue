@@ -23,7 +23,7 @@ export default {
   name: 'login',
   data() {
     let checkEmail = (rule, value, callback) => {
-      let emailReg = /^\w+@(\w+)+$/
+      let emailReg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
       setTimeout(() => {
         if (emailReg.test(value))
           callback()
