@@ -23,7 +23,7 @@ export default {
   name: 'login',
   data() {
     let checkEmail = (rule, value, callback) => {
-      let emailReg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
+      let emailReg = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
       setTimeout(() => {
         if (emailReg.test(value))
           callback()
@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 .login {
-  padding-top: 20%;
+  padding-top: 10%;
 }
 
 .loginBtn {

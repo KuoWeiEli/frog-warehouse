@@ -1,23 +1,17 @@
 <template>
-  <div id="app">Navigator bar
-<!--    <div><router-link to="/">Go to Login</router-link></div>-->
-<!--    <div><router-link to="/prduc。t">Go to Product</router-link></div>-->
-<!--    <div><router-link to="/customer">Go to Customer</router-link></div>-->
-<!--    <hr>-->
+  <div id="app">
+    <myHeader/>
     <router-view></router-view>
-<!--    <img alt="Vue logo" src="./assets/logo.png">-->
-<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+
+import MyHeader from "@/MyHeader";
 
 export default {
-  name: 'App'
-  // components: {
-  //   HelloWorld
-  // }
+  name: 'App',
+  components: {MyHeader}
 }
 </script>
 

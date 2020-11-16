@@ -11,7 +11,7 @@ Vue.use(VueRouter)
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {path: '/', component: login},
+        {path: '/login', component: login},
         {path: '/customer', component: customer},
         {path: '/product', component: product},
     ]
