@@ -50,11 +50,13 @@ export default {
   methods: {
     submit(formName) {
       this.$refs[formName].validate(valid => {
-        if (valid)
+        if (valid) {
           this.$message({
             type: 'success',
             message: '登入成功!'
           })
+          this.$router.push('/deliver/work')
+        }
         else
           this.$message({
             type: 'warning',
