@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "productName": "4號商品",
+      "region": "台北",
+      "counts": 200,
+      "memo": ""
+    },
+    {
+      "productName": "3號商品",
+      "region": "台北",
+      "counts": 150,
+      "memo": "滿100元贈品"
+    },
+    {
+      "productName": "2號商品",
+      "region": "台北",
+      "counts": 168,
+      "memo": "現場點收短缺3個"
+    },
+    {
+      "productName": "1號商品",
+      "region": "台中",
+      "counts": 99,
+      "memo": ""
+    }
+  ]
+}

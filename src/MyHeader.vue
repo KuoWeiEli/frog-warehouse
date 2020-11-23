@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" router="true">
+  <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :router="true">
     <el-menu-item index="0" route="/login">Login</el-menu-item>
     <el-submenu index="1">
       <template slot="title">出貨</template>
