@@ -74,7 +74,8 @@
           label="出貨備註"
           width="100">
       </el-table-column>
-      <el-table-column>
+      <el-table-column
+          width="100">
         <template slot-scope="scope">
           <el-button type="default" @click.native.prevent="openWorkDialog(scope.row)"
                      icon="el-icon-edit"></el-button>
@@ -87,8 +88,20 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'deliverRecord',
+  created() {
+    console.log(`createdd`)
+    axios.get('http://localhost:3000/records')
+        .then(response => {
+          console.log(response.data)
+          console.table(this)
+            this.records = response.data
+        })
+    // this.getRecords()
+  },
   data() {
     return {
       searchForm: {
@@ -96,13 +109,12 @@ export default {
         dateRange: []
       },
       defaultDate: new Date(),
-      records: {},
-
+      records: [],
     }
   },
-  beforeMount() {
-    this.getRecords()
-  },
+  // beforeMount() {
+  //   this.getRecords()
+  // },
   methods: {
     onSubmit() {
       console.log(this.searchForm.dateRange)
@@ -113,7 +125,8 @@ export default {
       const res = await fetch('http://localhost:3000/records')
       this.records = await res.json()
     },
-    openWorkDialog() {}
+    openWorkDialog() {
+    }
   }
 }
 </script>
