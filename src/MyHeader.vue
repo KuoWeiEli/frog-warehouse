@@ -4,7 +4,7 @@
     <el-submenu index="1">
       <template slot="title">出貨</template>
       <el-menu-item index="1-1" route="/deliver/work">出貨作業</el-menu-item>
-      <el-menu-item index="1-2">出貨紀錄</el-menu-item>
+      <el-menu-item index="1-2" route="/deliver/record">出貨紀錄</el-menu-item>
     </el-submenu>
     <el-submenu index="2">
       <template slot="title">商品管理</template>

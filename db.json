@@ -45,5 +45,47 @@
       "counts": 99,
       "memo": ""
     }
+  ],
+  "records": [
+    {
+      "date": "2020/09/21",
+      "handler": "王小美",
+      "productName": "4號商品",
+      "custNo": "033485",
+      "custName": "小丸子",
+      "orderPoints": "10點",
+      "deliveryNum": 10,
+      "memo": "10/8領取"
+    },
+    {
+      "date": "2020/09/20",
+      "handler": "王小美",
+      "productName": "1號商品",
+      "custNo": "210046",
+      "custName": "花輪",
+      "orderPoints": "20點",
+      "deliveryNum": 4,
+      "memo": "高雄取貨"
+    },
+    {
+      "date": "2020/09/17",
+      "handler": "王小美",
+      "productName": "2號商品",
+      "custNo": "284375",
+      "custName": "美惠",
+      "orderPoints": "80點",
+      "deliveryNum": 8,
+      "memo": ""
+    },
+    {
+      "date": "2020/09/15",
+      "handler": "王小美",
+      "productName": "1號商品",
+      "custNo": "058344",
+      "custName": "小玉",
+      "orderPoints": "35點",
+      "deliveryNum": 7,
+      "memo": ""
+    }
   ]
 }
