@@ -2,7 +2,7 @@
   <div>
     <el-form :inline="true" :model="searchForm" class="demo-form-inline">
       <el-form-item label="商品名稱">
-        <el-select v-model="searchForm.productName" placeholder="商品名稱" filterable>
+        <el-select v-model="searchForm.id" placeholder="商品名稱" filterable clearable>
           <el-option label="1號商品" value="1"></el-option>
           <el-option label="2號商品" value="2"></el-option>
           <el-option label="3號商品" value="3"></el-option>
@@ -89,29 +89,9 @@ export default {
   data() {
     return {
       searchForm: {
-        productName: ''
+        id: ''
       },
-      products: [{
-        productName: '4號商品',
-        region: '台北',
-        counts: 200,
-        memo: ''
-      }, {
-        productName: '3號商品',
-        region: '台北',
-        counts: 150,
-        memo: '滿100元贈品'
-      }, {
-        productName: '2號商品',
-        region: '台北',
-        counts: 168,
-        memo: '現場點收短缺3個'
-      }, {
-        productName: '1號商品',
-        region: '台中',
-        counts: 99,
-        memo: ''
-      }],
+      products: [],
       workDialogVisible: false,
       workForm: {
         custNo: '',
@@ -124,13 +104,21 @@ export default {
       workData: {}
     }
   },
+  beforeMount() {
+    this.getProducts()
+  },
   methods: {
     onSubmit() {
+      this.getProducts(this.searchForm.id)
     },
     openWorkDialog(row) {
       this.workDialogVisible = true
       this.workData = row
     },
+    async getProducts(id) {
+      const res = await fetch(`http://localhost:3000/products${id ? ('?id=' + id) : ''}`)
+      this.products = await res.json()
+    }
   }
 }
 </script>

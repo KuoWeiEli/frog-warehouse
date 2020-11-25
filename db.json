@@ -18,24 +18,28 @@
   },
   "products": [
     {
+      "id": 4,
       "productName": "4號商品",
       "region": "台北",
       "counts": 200,
       "memo": ""
     },
     {
+      "id": 3,
       "productName": "3號商品",
       "region": "台北",
       "counts": 150,
       "memo": "滿100元贈品"
     },
     {
+      "id": 2,
       "productName": "2號商品",
       "region": "台北",
       "counts": 168,
       "memo": "現場點收短缺3個"
     },
     {
+      "id": 1,
       "productName": "1號商品",
       "region": "台中",
       "counts": 99,
