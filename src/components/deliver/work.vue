@@ -19,22 +19,22 @@
         stripe
         style="width: 100%">
       <el-table-column
-          prop="productName"
+          prop="Name"
           label="商品名稱"
           width="180">
       </el-table-column>
       <el-table-column
-          prop="region"
+          prop="City"
           label="地區"
           width="180">
       </el-table-column>
       <el-table-column
-          prop="counts"
+          prop="Quantity"
           label="庫存數量"
           width="180">
       </el-table-column>
       <el-table-column
-          prop="memo"
+          prop="Remarks"
           label="商品備註"
           width="180">
       </el-table-column>
@@ -84,8 +84,16 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "deliverWork",
+  created() {
+    console.log(`createdd`)
+    this.getProducts()
+
+    // this.getRecords()
+  },
   data() {
     return {
       searchForm: {
@@ -105,7 +113,6 @@ export default {
     }
   },
   beforeMount() {
-    this.getProducts()
   },
   methods: {
     onSubmit() {
@@ -116,8 +123,16 @@ export default {
       this.workData = row
     },
     async getProducts(id) {
-      const res = await fetch(`http://localhost:3000/products${id ? ('?id=' + id) : ''}`)
-      this.products = await res.json()
+      // const res = await fetch(`http://localhost:3000/products${id ? ('?id=' + id) : ''}`)
+      // const res = await fetch(`http://pei.usa543.com:96/Store/Api/Product/ProductList${id ? ('?id=' + id) : ''}`)
+      // const obj = await res.json()
+      // this.products = obj.data.Data
+      console.log(`id: ${id}`)
+      axios.get(`http://pei.usa543.com:96/Store/Api/Product/ProductList${id ? ('?Id=' + id) : ''}`)
+          .then(response => {
+            console.log(response.data.Data)
+            this.products = response.data.Data
+      })
     }
   }
 }

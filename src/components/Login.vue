@@ -1,20 +1,22 @@
 <template>
-    <el-col :span="8">
-      <el-form ref="loginForm" :model="form" :rules="rules" status-icon>
-        <el-form-item prop="email">
-          <el-input v-model="form.email" placeholder="email..."></el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input type="password" v-model="form.password" placeholder="password..." autocomplete="off"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button class="loginBtn" type="primary" @click="submit('loginForm')">Login</el-button>
-        </el-form-item>
-      </el-form>
-    </el-col>
+  <el-col :span="8">
+    <el-form ref="loginForm" :model="form" :rules="rules" status-icon>
+      <el-form-item prop="email">
+        <el-input v-model="form.email" placeholder="email..."></el-input>
+      </el-form-item>
+      <el-form-item prop="password">
+        <el-input type="password" v-model="form.password" placeholder="password..." autocomplete="off"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button class="loginBtn" type="primary" @click="submit('loginForm')">Login</el-button>
+      </el-form-item>
+    </el-form>
+  </el-col>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: 'login',
   data() {
@@ -51,18 +53,42 @@ export default {
     submit(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          this.$message({
-            type: 'success',
-            message: '登入成功!'
-          })
-          this.$router.push('/deliver/work')
-        }
-        else
+          console.log('start authenticate...')
+          this.authenticate()
+              .then(status => {
+                console.log(`status: ${status}`)
+                if (status) {
+                  this.$message({
+                    type: 'success',
+                    message: '登入成功!'
+                  })
+                  this.$router.push('/deliver/work')
+                }
+              })
+        } else
           this.$message({
             type: 'warning',
             message: '資料不正確，請確認!'
           })
       })
+    },
+    async authenticate() {
+      const userInfo = {
+        'Account': this.form.email,
+        'Password': this.form.password
+      }
+      let status = false
+      await axios.post('http://pei.usa543.com:96/Store/Api/Login/UserLogin', userInfo)
+          .then(response => {
+            if (!response.data.Success)
+              this.$message({
+                type: 'danger',
+                message: response.data.Message
+              })
+            else
+              status = true
+          })
+      return status
     }
   }
 }
